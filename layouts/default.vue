@@ -4,14 +4,14 @@
     v-content
       v-container
         nuxt
-    v-footer
-      v-flex(class='text-xs-center') © 2018. All rights reserved.
+    the-footer
 </template>
 
 <script>
   import TheNavbar from '~/components/the-navbar.vue'
+  import TheFooter from '~/components/the-footer.vue'
 
   export default {
-    components: { TheNavbar },
+    components: { TheNavbar, TheFooter },
   }
 </script>
