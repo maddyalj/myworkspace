@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    v-btn.right(color='primary') #[v-icon.mr-1 add] New Booking
+    v-btn.right(@click.native.stop='openNewBookingDialog' color='primary') #[v-icon.mr-1 add] New Booking
     h1 Bookings
     v-data-iterator(:items='sortedBookings')
       v-card.mt-3(slot='item' slot-scope='props')
@@ -10,13 +10,23 @@
           .headline {{ getBookingOffice(props.item).address }}
           div.grey--text {{ props.item.guestCount }} guests
           p {{ formatBookingTitle(props.item) }}
-          v-btn.ml-0(color='primary') Book Again
+          v-btn.ml-0(@click='clickBookAgain(props.item)' color='primary') Book Again
+    the-new-booking-dialog(v-bind.sync='dialogData')
 </template>
 
 <script>
+  import theNewBookingDialog from '~/components/the-new-booking-dialog.vue'
+
   import { mapState } from 'vuex'
 
   export default {
+    components: { theNewBookingDialog },
+    data: () => ({
+      dialogData: {
+        display: false,
+        newBooking: {},
+      },
+    }),
     computed: {
       ...mapState('centre', ['offices']),
       ...mapState('customer', ['bookings']),
@@ -26,6 +36,13 @@
     },
     head: { title: 'Bookings' },
     methods: {
+      openNewBookingDialog() {
+        this.dialogData.display = true
+      },
+      clickNewBooking() {
+        this.dialogData.newBooking = {}
+        this.openNewBookingDialog()
+      },
       sortByDate(a, b) {
         return new Date(b.date) - new Date(a.date)
       },
@@ -34,6 +51,10 @@
       },
       formatBookingTitle(booking) {
         return `${booking.date.substr(8, 2)}/${booking.date.substr(5, 2)} ${booking.startTime} - ${booking.endTime}`
+      },
+      clickBookAgain({ id, date, ...newBooking }) {
+        this.dialogData.newBooking = newBooking
+        this.openNewBookingDialog()
       },
     },
   }
