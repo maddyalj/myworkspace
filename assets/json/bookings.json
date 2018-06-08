@@ -1,0 +1,202 @@
+[
+  {
+    "id": 0,
+    "officeId": 1,
+    "date": "2018-04-12",
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "guestCount": 13
+  },
+  {
+    "id": 1,
+    "officeId": 2,
+    "date": "2018-04-14",
+    "startTime": "13:00",
+    "endTime": "18:00",
+    "guestCount": 21
+  },
+  {
+    "id": 2,
+    "officeId": 2,
+    "date": "2018-04-15",
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "guestCount": 22
+  },
+  {
+    "id": 3,
+    "officeId": 0,
+    "date": "2018-04-17",
+    "startTime": "12:00",
+    "endTime": "15:00",
+    "guestCount": 11
+  },
+  {
+    "id": 4,
+    "officeId": 2,
+    "date": "2018-04-18",
+    "startTime": "14:00",
+    "endTime": "15:00",
+    "guestCount": 2
+  },
+  {
+    "id": 5,
+    "officeId": 0,
+    "date": "2018-04-20",
+    "startTime": "16:00",
+    "endTime": "18:00",
+    "guestCount": 17
+  },
+  {
+    "id": 6,
+    "officeId": 2,
+    "date": "2018-04-21",
+    "startTime": "12:00",
+    "endTime": "18:00",
+    "guestCount": 12
+  },
+  {
+    "id": 7,
+    "officeId": 2,
+    "date": "2018-04-22",
+    "startTime": "14:00",
+    "endTime": "18:00",
+    "guestCount": 7
+  },
+  {
+    "id": 8,
+    "officeId": 2,
+    "date": "2018-04-23",
+    "startTime": "15:00",
+    "endTime": "18:00",
+    "guestCount": 21
+  },
+  {
+    "id": 9,
+    "officeId": 1,
+    "date": "2018-04-24",
+    "startTime": "13:00",
+    "endTime": "18:00",
+    "guestCount": 13
+  },
+  {
+    "id": 10,
+    "officeId": 0,
+    "date": "2018-04-25",
+    "startTime": "14:00",
+    "endTime": "18:00",
+    "guestCount": 12
+  },
+  {
+    "id": 11,
+    "officeId": 1,
+    "date": "2018-04-29",
+    "startTime": "15:00",
+    "endTime": "18:00",
+    "guestCount": 11
+  },
+  {
+    "id": 12,
+    "officeId": 2,
+    "date": "2018-05-01",
+    "startTime": "16:00",
+    "endTime": "18:00",
+    "guestCount": 7
+  },
+  {
+    "id": 13,
+    "officeId": 0,
+    "date": "2018-05-02",
+    "startTime": "15:00",
+    "endTime": "16:00",
+    "guestCount": 10
+  },
+  {
+    "id": 14,
+    "officeId": 2,
+    "date": "2018-05-03",
+    "startTime": "14:00",
+    "endTime": "18:00",
+    "guestCount": 3
+  },
+  {
+    "id": 15,
+    "officeId": 0,
+    "date": "2018-05-11",
+    "startTime": "16:00",
+    "endTime": "18:00",
+    "guestCount": 3
+  },
+  {
+    "id": 16,
+    "officeId": 0,
+    "date": "2018-05-15",
+    "startTime": "11:00",
+    "endTime": "18:00",
+    "guestCount": 17
+  },
+  {
+    "id": 17,
+    "officeId": 0,
+    "date": "2018-05-17",
+    "startTime": "12:00",
+    "endTime": "18:00",
+    "guestCount": 6
+  },
+  {
+    "id": 18,
+    "officeId": 1,
+    "date": "2018-05-26",
+    "startTime": "13:00",
+    "endTime": "17:00",
+    "guestCount": 24
+  },
+  {
+    "id": 19,
+    "officeId": 0,
+    "date": "2018-06-01",
+    "startTime": "13:00",
+    "endTime": "16:00",
+    "guestCount": 6
+  },
+  {
+    "id": 20,
+    "officeId": 2,
+    "date": "2018-06-04",
+    "startTime": "11:00",
+    "endTime": "15:00",
+    "guestCount": 2
+  },
+  {
+    "id": 21,
+    "officeId": 2,
+    "date": "2018-06-06",
+    "startTime": "13:00",
+    "endTime": "18:00",
+    "guestCount": 15
+  },
+  {
+    "id": 22,
+    "officeId": 0,
+    "date": "2018-06-07",
+    "startTime": "14:00",
+    "endTime": "17:00",
+    "guestCount": 19
+  },
+  {
+    "id": 23,
+    "officeId": 0,
+    "date": "2018-06-08",
+    "startTime": "15:00",
+    "endTime": "18:00",
+    "guestCount": 23
+  },
+  {
+    "id": 24,
+    "officeId": 2,
+    "date": "2018-06-11",
+    "startTime": "10:00",
+    "endTime": "16:00",
+    "guestCount": 3
+  }
+]
