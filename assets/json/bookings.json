@@ -169,7 +169,7 @@
   },
   {
     "id": 21,
-    "officeId": 2,
+    "officeId": 1,
     "date": "2018-06-06",
     "startTime": "13:00",
     "endTime": "18:00",
@@ -177,7 +177,7 @@
   },
   {
     "id": 22,
-    "officeId": 0,
+    "officeId": 1,
     "date": "2018-06-07",
     "startTime": "14:00",
     "endTime": "17:00",
