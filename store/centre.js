@@ -1,3 +1,5 @@
+import announcements from '~/assets/json/announcements.json'
+
 export const state = () => ({
   offices: [
     {
@@ -13,4 +15,5 @@ export const state = () => ({
       address: '3 London Bridge Street',
     },
   ],
+  announcements,
 })
