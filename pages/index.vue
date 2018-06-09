@@ -1,26 +1,28 @@
 <template lang="pug">
   div
     v-btn.right(@click.native.stop='openNewBookingDialog' color='primary') #[v-icon.mr-1 add] New Booking
-    h1 Bookings
+    h1.mb-3 Bookings
     v-data-iterator(:items='sortedBookings')
-      v-card.mt-3(slot='item' slot-scope='props')
+      v-card.mb-3(slot='item' slot-scope='props')
         .pa-3
           img(:src='`img/offices/${getBookingOffice(props.item).id}.jpg`' width='130')
         .pa-3
           .headline {{ getBookingOffice(props.item).address }}
-          div.grey--text {{ props.item.guestCount }} guests
-          p {{ formatBookingTitle(props.item) }}
+          .grey--text {{ formatBookingDateAndTimes(props.item) }}
+          .mb-2 {{ props.item.guestCount }} guests
           v-btn.ml-0(@click='clickBookAgain(props.item)' color='primary') Book Again
     the-new-booking-dialog(v-bind.sync='dialogData')
 </template>
 
 <script>
   import theNewBookingDialog from '~/components/the-new-booking-dialog.vue'
+  import date from '~/assets/js/mixins/date.js'
 
   import { mapState } from 'vuex'
 
   export default {
     components: { theNewBookingDialog },
+    mixins: [date],
     data: () => ({
       dialogData: {
         display: false,
@@ -31,7 +33,7 @@
       ...mapState('centre', ['offices']),
       ...mapState('customer', ['bookings']),
       sortedBookings() {
-        return this.bookings.slice().sort(this.sortByDate)
+        return this.bookings.slice().sort(this.$_date_sortDescendingly)
       },
     },
     head: { title: 'Bookings' },
@@ -43,14 +45,11 @@
         this.dialogData.newBooking = {}
         this.openNewBookingDialog()
       },
-      sortByDate(a, b) {
-        return new Date(b.date) - new Date(a.date)
-      },
       getBookingOffice(booking) {
         return this.offices[booking.officeId]
       },
-      formatBookingTitle(booking) {
-        return `${booking.date.substr(8, 2)}/${booking.date.substr(5, 2)} ${booking.startTime} - ${booking.endTime}`
+      formatBookingDateAndTimes(booking) {
+        return `${this.$_date_format(booking.date)} ${booking.startTime} - ${booking.endTime}`
       },
       clickBookAgain({ id, date, ...newBooking }) {
         this.dialogData.newBooking = newBooking
