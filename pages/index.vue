@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    v-btn.right(@click.native.stop='openNewBookingDialog' color='primary') #[v-icon.mr-1 add] New Booking
+    v-btn.right(@click.native.stop='clickNewBooking' color='primary') #[v-icon.mr-1 add] New Booking
     h1.mb-3 Bookings
     v-data-iterator(:items='sortedBookings')
       v-card.mb-3(slot='item' slot-scope='props')
@@ -42,7 +42,6 @@
         this.dialogData.display = true
       },
       clickNewBooking() {
-        this.dialogData.newBooking = {}
         this.openNewBookingDialog()
       },
       getBookingOffice(booking) {
