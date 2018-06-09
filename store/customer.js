@@ -3,6 +3,12 @@ import bookings from '~/assets/json/bookings.json'
 import invoices from '~/assets/json/invoices.json'
 
 export const state = () => ({
+  account: {
+    email: 'chandler.bing@example.com',
+    password: 'sarc@stic_j0kes',
+    name: 'Chandler Bing',
+    shouldStayLoggedIn: true,
+  },
   bookings,
   invoices,
 })
@@ -12,6 +18,9 @@ export const getters = {
 }
 
 export const mutations = {
+  UPDATE_ACCOUNT(state, newAccount) {
+    Vue.set(state, 'account', newAccount)
+  },
   ADD_BOOKING({ bookings }, booking) {
     bookings.push(booking)
   },
@@ -21,13 +30,17 @@ export const mutations = {
 }
 
 export const actions = {
+  updateAccountSettings({ commit }, settings) {
+    const newAccount = Object.assign({}, state.account, settings)
+    commit('UPDATE_ACCOUNT', newAccount)
+  },
   commitNewBooking({ commit, getters }, booking) {
     booking.id = getters.getMaxBookingId + 1
     commit('ADD_BOOKING', booking)
   },
-  makeInvoicePaid({ state, commit, getters }, id) {
+  makeInvoicePaid({ state, commit }, id) {
     const index = state.invoices.findIndex(i => i.id === id)
-    const invoice = Object.assign({}, state.invoices[index])
+    const invoice = { ...state.invoices[index] }
     invoice.isPaid = true
     commit('UPDATE_INVOICE', { index, invoice })
   },
