@@ -67,21 +67,21 @@
     "amount": 122.46,
     "issueDate": "2018-02-18",
     "dueDate": "2018-03-04",
-    "isPaid": true
+    "isPaid": false
   },
   {
     "id": 60515,
     "amount": 48.44,
     "issueDate": "2018-03-20",
     "dueDate": "2018-04-02",
-    "isPaid": true
+    "isPaid": false
   },
   {
     "id": 63721,
     "amount": 124.87,
     "issueDate": "2018-04-15",
     "dueDate": "2018-04-29",
-    "isPaid": true
+    "isPaid": false
   },
   {
     "id": 64310,

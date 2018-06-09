@@ -12,16 +12,19 @@
           td {{ $_date_format(props.item.dueDate) }}
           td {{ getInvoiceStatus(props.item) }}
           td
-            v-btn(@click='' :color='getInvoiceColor(props.item)' flat :disabled='props.item.isPaid') Make Payment
+            v-btn(@click='clickMakePayment(props.item)' :color='getInvoiceColor(props.item)' flat :disabled='props.item.isPaid') Make Payment
+    the-make-payment-dialog(v-bind.sync='dialogData')
 </template>
 
 <script>
   import { mapState } from 'vuex'
+  import theMakePaymentDialog from '~/components/the-make-payment-dialog.vue'
   import date from '~/assets/js/mixins/date.js'
 
   const today = new Date()
 
   export default {
+    components: { theMakePaymentDialog },
     mixins: [date],
     data: () => ({
       search: '',
@@ -39,6 +42,10 @@
         { 'text': 'All', 'value': -1 }
       ],
       pagination: { descending: true },
+      dialogData: {
+        display: false,
+        invoice: {},
+      },
     }),
     computed: mapState('customer', ['invoices']),
     head: { title: 'FAQ' },
@@ -55,6 +62,12 @@
           case 'Overdue': return 'error'
         }
         return null
+      },
+      clickMakePayment(invoice) {
+        this.dialogData = {
+          display: true,
+          invoice,
+        }
       },
     },
   }
