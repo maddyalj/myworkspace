@@ -3,8 +3,8 @@
     v-toolbar-title.mr-4 #[v-icon.mb-1 business_center] MyWorkspace
     v-toolbar-items
       v-btn(to='/' flat) Bookings
+      v-btn(to='/invoices' flat) Invoices
       v-btn(to='/announcements' flat) Announcements
-      v-btn(to='/messages' flat) Messages
     v-spacer
     v-toolbar-items
       v-menu(offset-y)

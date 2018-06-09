@@ -1,7 +1,9 @@
 import bookings from '~/assets/json/bookings.json'
+import invoices from '~/assets/json/invoices.json'
 
 export const state = () => ({
   bookings,
+  invoices,
 })
 
 export const getters = {
