@@ -13,5 +13,6 @@
 
   export default {
     components: { TheNavbar, TheFooter },
+    middleware: 'authenticated',
   }
 </script>

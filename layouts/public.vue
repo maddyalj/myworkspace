@@ -16,5 +16,6 @@
 
   export default {
     components: { TheFooter },
+    middleware: 'notAuthenticated',
   }
 </script>

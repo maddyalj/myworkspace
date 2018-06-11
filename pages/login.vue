@@ -2,23 +2,41 @@
   v-card
     v-card-text
       .subheading.text-xs-center Log in to your customer portal
-      v-form
-        v-text-field(v-model='user.email' prepend-icon='email' label='Email' type='email')
-        v-text-field(v-model='user.password' prepend-icon='lock' label='Password' type='password')
-        v-checkbox(v-model='user.shouldStayLoggedIn' label='Stay logged in?' hide-details)
-        v-btn(to='/' color='primary' block type='submit') Sign in
+      v-form(v-model='isValid' ref='form' @submit.prevent='submitForm')
+        v-alert(:value='error' type='error') Invalid email or password. Please try again.
+        v-text-field(v-model='account.email' :rules='[rules.required]' prepend-icon='email' label='Email' type='email')
+        v-text-field(v-model='account.password' :rules='[rules.required]' prepend-icon='lock' label='Password' type='password')
+        v-checkbox(v-model='account.shouldStayLoggedIn' label='Stay logged in?' hide-details)
+        v-btn(color='primary' :disabled='!isValid' block type='submit') Sign In
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
+
   export default {
     data: () => ({
-      user: {
-        email: 'chandler.bing@example.com',
-        password: 'sarc@stic_j0kes',
-        shouldStayLoggedIn: true,
+      error: false,
+      rules: {
+        required: (v) => !!v || 'Field is required',
       },
+      isValid: true,
     }),
     head: { title: 'Login' },
     layout: 'public',
+    beforeCreate() {
+      this.account = { ...this.$store.state.customer.account }
+    },
+    methods: {
+      ...mapActions('customer', ['loginAccount']),
+      submitForm() {
+        if (!this.$refs.form.validate()) return
+        try {
+          this.loginAccount(this.account)
+          this.$router.push('/')
+        } catch (e) {
+          this.error = true
+        }
+      },
+    },
   }
 </script>

@@ -16,10 +16,24 @@
           v-list-tile(to='/settings')
             v-icon.mr-3 settings
             v-list-tile-title Settings
-          v-list-tile(to='/login')
+          v-list-tile(@click='clickLogout')
             v-icon.mr-3 exit_to_app
             v-list-tile-title Logout
 </template>
+
+<script>
+  import { mapActions } from 'vuex'
+
+  export default {
+    methods: {
+      ...mapActions('customer', ['logoutAccount']),
+      clickLogout() {
+        this.logoutAccount()
+        this.$router.push('/login')
+      },
+    },
+  }
+</script>
 
 <style lang='sass' scoped>
   /deep/ .toolbar__content

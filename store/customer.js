@@ -9,6 +9,7 @@ export const state = () => ({
     name: 'Chandler Bing',
     shouldStayLoggedIn: true,
   },
+  auth: false,
   bookings,
   invoices,
 })
@@ -18,6 +19,9 @@ export const getters = {
 }
 
 export const mutations = {
+  UPDATE_AUTH(state, value) {
+    state.auth = value
+  },
   UPDATE_ACCOUNT(state, newAccount) {
     Vue.set(state, 'account', newAccount)
   },
@@ -30,6 +34,17 @@ export const mutations = {
 }
 
 export const actions = {
+  loginAccount({ state, commit }, account) {
+    const isEmailInvalid = state.account.email !== account.email
+    const isPasswordInvalid = state.account.password !== account.password
+    if (isEmailInvalid || isPasswordInvalid) {
+      throw 'Invalid user credentials'
+    }
+    commit('UPDATE_AUTH', true)
+  },
+  logoutAccount({ commit }) {
+    commit('UPDATE_AUTH', false)
+  },
   updateAccountSettings({ commit }, settings) {
     const newAccount = Object.assign({}, state.account, settings)
     commit('UPDATE_ACCOUNT', newAccount)
