@@ -15,6 +15,7 @@
 
   export default {
     data: () => ({
+      account: {},
       error: false,
       rules: {
         required: (v) => !!v || 'Field is required',
@@ -23,7 +24,7 @@
     }),
     head: { title: 'Login' },
     layout: 'public',
-    beforeCreate() {
+    created() {
       this.account = { ...this.$store.state.customer.account }
     },
     methods: {
