@@ -10,7 +10,7 @@
       v-menu(offset-y)
         v-btn(flat slot='activator')
           v-avatar(size='36')
-            img(src='http://i.pravatar.cc/36?img=53' alt='Display Picture')
+            img(src='img/avatar.jpg' alt='Display Picture')
           v-icon.ml-2 keyboard_arrow_down
         v-list
           v-list-tile(to='/settings')
