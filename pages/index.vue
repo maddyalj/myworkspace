@@ -4,7 +4,7 @@
     h1.mb-3 Bookings
     v-data-iterator(:items='sortedBookings')
       v-card.mb-3(slot='item' slot-scope='props')
-        .pa-3
+        .office-image.pa-3
           img(:src='`img/offices/${getBookingOffice(props.item).id}.jpg`' width='130')
         .pa-3
           .headline {{ getBookingOffice(props.item).address }}
@@ -62,7 +62,12 @@
   /deep/ .card
     display: flex
     align-items: center
+    @media only screen and (max-width: 490px)
+      display: block
+      text-align: center
 
   img
     display: block
+    margin: auto
+
 </style>
