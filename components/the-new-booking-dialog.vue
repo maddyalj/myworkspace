@@ -58,7 +58,7 @@
       isValid: true,
     }),
     computed: mapState('centre', ['offices']),
-    created() {
+    mounted() {
       this.resetNewBooking()
     },
     methods: {
@@ -74,6 +74,7 @@
         this.resetNewBooking()
       },
       resetNewBooking() {
+        this.$refs.form.reset()
         const newBooking = Object.assign({}, defaultNewBooking)
         this.$emit('update:newBooking', newBooking)
       },
