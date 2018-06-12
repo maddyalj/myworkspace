@@ -6,7 +6,7 @@
       v-text-field(v-model='account.email' required :rules='[rules.required, rules.email]' validate-on-blur prepend-icon='email' label='Email' type='email')
       v-text-field(v-model='newPassword' :rules='[rules.newPassword]' validate-on-blur prepend-icon='lock' label='New Password' type='password')
       v-text-field(v-model='newPasswordConfirm' :rules='[rules.newPasswordConfirm]' validate-on-blur prepend-icon='lock' label='Confirm New Password' type='password')
-      .right
+      .right.mb-4
         v-btn(@click='clickCancel') Cancel
         v-btn(@click='clickSave' :disabled='!isValid' color='primary') Save
 </template>
