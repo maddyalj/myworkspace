@@ -72,9 +72,9 @@
       clickCancel() {
         this.$emit('update:display', false)
         this.resetNewBooking()
+        this.$refs.form.reset()
       },
       resetNewBooking() {
-        this.$refs.form.reset()
         const newBooking = Object.assign({}, defaultNewBooking)
         this.$emit('update:newBooking', newBooking)
       },
